@@ -6,9 +6,9 @@ export default function App(){
 
     const [start,setStart] = useState(false)
 
-    //  setTimeout(()=>{
-    //    setStart(true);
-    //  },4000)
+     setTimeout(()=>{
+       setStart(true);
+     },4000)
          
   return (
      <>
