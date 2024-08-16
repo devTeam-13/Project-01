@@ -9,9 +9,9 @@ export default function App(){
     useEffect(() => {
       if (TelegramWebApp?.initData) {
         const user = TelegramWebApp?.initDataUnsafe?.user;
-      
+         console.log("user=",user);
         if (user) {
-          setUserId(user); // Get the user ID
+          setUserId(user.id); // Get the user ID
         }
       }
   
