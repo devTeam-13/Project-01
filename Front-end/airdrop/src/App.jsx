@@ -7,17 +7,25 @@ export default function App(){
     const [start,setStart] = useState(false)
     const [userId, setUserId] = useState(null);
     useEffect(() => {
-      if (TelegramWebApp.initData) {
-        const user = TelegramWebApp?.initDataUnsafe?.user;
-      
-        if (user) {
-          setUserId(user?.id); // Get the user ID
-        }
+      console.log("Checking if Telegram WebApp is available...");
+  
+      if (window.Telegram) {
+        console.log("Telegram object found:", window.Telegram);
+      } else {
+        console.error("Telegram object not found on window. Make sure you open this app through Telegram.");
       }
   
-      // Expand the web app to full screen
-      TelegramWebApp.expand();
+      if (window.Telegram?.WebApp) {
+        console.log("Telegram WebApp is available:", window.Telegram.WebApp);
+        const user = window.Telegram.WebApp.initDataUnsafe?.user;
+        console.log("User data:", user);
+  
+        window.Telegram.WebApp.expand(); // Expand the web app to full screen
+      } else {
+        console.error("Telegram WebApp is not found. Make sure the app is opened via Telegram.");
+      }
     }, []);
+  
      setTimeout(()=>{
        setStart(true);
      },4000)
