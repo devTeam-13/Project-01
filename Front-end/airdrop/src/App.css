@@ -8,6 +8,10 @@
 .start_screen {
   height: 55em;
 }
+.amount_token {
+  font-family:sans-serif;
+  word-spacing: 4px;
+}
 /* Define the keyframes for the blinking animation */
 @keyframes blink {
   0% {
