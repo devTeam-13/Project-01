@@ -6,17 +6,17 @@ export default function App(){
 
     const [start,setStart] = useState(false)
 
-     setTimeout(()=>{
-       setStart(true);
-     },4000)
+    //  setTimeout(()=>{
+    //    setStart(true);
+    //  },4000)
          
   return (
      <>
-       { !start ? <div><div className=" bg-slate-900 w-full h-screen flex justify-center ">
-        <div className='w-full h-1/2  flex items-center justify-center'><img  src="/sticker.png" alt="logo" className='w-36 h-36  ' /></div>
+       { !start ? <div className='w-full h-screen bg-slate-900 flex justify-center items-center '><div className="  ">
+        <div><img  src="/sticker.png" alt="logo" className='w-36 h-36  ' /></div>
        
-        </div>
-        <div className="w-full text-slate-50">PONKE </div>
+ 
+        <div className="w-full h-44 text-slate-50"> </div>       </div>
         </div>:
            
         <div className="home  bg-slate-900 w-full h-screen p-2">
