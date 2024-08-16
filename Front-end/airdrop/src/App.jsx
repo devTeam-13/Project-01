@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 
@@ -12,11 +12,11 @@ export default function App(){
          
   return (
      <>
-       { !start ? <div className="start_screen bg-slate-900 w-full h-screen flex justify-center items-center ">
+       { !start ? <div className="start_screen bg-slate-900 w-full h-100 flex justify-center items-center ">
         <img  src="/sticker.png" alt="logo" className='w-28 h-28 '/>
         </div>:
         <div>
-          Hello Team
+        
         </div>
        }
 
