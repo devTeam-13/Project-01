@@ -5,7 +5,9 @@
 .top-glow {
   box-shadow: 0 -26px 20px rgba(243, 186, 47, 0.3);
 }
-
+.start_screen {
+  height: 55em;
+}
 /* Define the keyframes for the blinking animation */
 @keyframes blink {
   0% {
