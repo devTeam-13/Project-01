@@ -11,7 +11,7 @@ export default function App(){
         const user = TelegramWebApp?.initDataUnsafe?.user;
       
         if (user) {
-          setUserId(user.id); // Get the user ID
+          setUserId(user); // Get the user ID
         }
       }
   
