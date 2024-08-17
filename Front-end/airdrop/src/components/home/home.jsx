@@ -97,32 +97,30 @@ export default function Home(){
 
         </div>
 
-        {showSlider && (
         <div
-          className={`fixed inset-0 flex justify-center items-end transition-all duration-500 ${
-            showSlider ? 'opacity-100 translate-y-0 ' : 'opacity-0 translate-y-full pointer-events-none'
-          }`}
-        >
-          <div className="bg-slate-800 w-full h-1/3 rounded-t-lg p-6 flex flex-col">
-            <h2 className="text-2xl text-white mb-4">Confirm Wallet Connection</h2>
-            <p className="text-slate-400 mb-8">Please confirm to connect your wallet.</p>
-            <div className="flex flex-col">
-              <button
-                className="bg-blue-400 text-white px-5 py-3 rounded-full"
-                onClick={handleConfirmConnection}
-              >
-                Confirm
-              </button>
-              <button
-                className="bg-slate-600 text-white px-5 py-3 rounded-full mt-3"
-                onClick={handleCancelConnection}
-              >
-                Cancel
-              </button>
-            </div>
+        className={`fixed inset-0 flex justify-center items-end transition-transform duration-700 ${
+          showSlider ? 'translate-y-0' : 'translate-y-full'
+        }`}
+      >
+        <div className="bg-slate-800 w-full h-1/3 rounded-t-lg p-6 flex flex-col">
+          <h2 className="text-2xl text-white mb-4">Confirm Wallet Connection</h2>
+          <p className="text-slate-400 mb-8">Please confirm to connect your wallet.</p>
+          <div className="flex flex-col">
+            <button
+              className="bg-blue-400 text-white px-5 py-3 rounded-full"
+              onClick={handleConfirmConnection}
+            >
+              Confirm
+            </button>
+            <button
+              className="bg-slate-600 text-white px-5 py-3 rounded-full mt-3"
+              onClick={handleCancelConnection}
+            >
+              Cancel
+            </button>
           </div>
         </div>
-      )}
+      </div>
   </div>
     )
 }
