@@ -1,6 +1,9 @@
 import React, { useState,useEffect } from 'react';
 import './App.css';
 import Home from './components/home/home';
+import { TelegramContext } from './utils/store';
+
+
 
 export default function App(){
   const TelegramWebApp = window?.Telegram?.WebApp;
@@ -28,13 +31,18 @@ export default function App(){
         <div><img  src="/sticker.png" alt="logo" className='w-36 h-36  ' /></div>
        
  
-        <div className="w-full h-44 text-slate-50 m-4"> Hi , {user?user?.first_name:"no user id "} </div>   
-        <div className="w-full h-44 text-slate-50 m-4"> this is your, {user?user?.username:"no user id "} </div>        </div>
+        <div className="w-full h-44 text-slate-50 "> </div>   
+    </div>
         </div>:
            
         <div className="home  bg-slate-900 w-full h-screen p-2">
             <div className="container bg-slate-900 w-full h-full">
+              <TelegramContext.Provider value={{user:user}}>
               <Home/>
+
+
+              </TelegramContext.Provider>
+           
                 
               
               
