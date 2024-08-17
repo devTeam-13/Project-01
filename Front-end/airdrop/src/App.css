@@ -14,7 +14,10 @@
 }
 .footer {
   position: absolute;
-  bottom:1px;
+  bottom:1em;
+}
+.home {
+  position: relative;
 }
 /* Define the keyframes for the blinking animation */
 @keyframes blink {
