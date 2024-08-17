@@ -12,6 +12,10 @@
   font-family:sans-serif;
   word-spacing: 4px;
 }
+.footer {
+  position: absolute;
+  bottom:1px;
+}
 /* Define the keyframes for the blinking animation */
 @keyframes blink {
   0% {

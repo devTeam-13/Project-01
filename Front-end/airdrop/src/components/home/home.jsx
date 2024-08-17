@@ -7,26 +7,17 @@ export default function Home(){
  const user = useContext(TelegramContext)
  console.log("userr=>",user);
     return (
-  <>    <div className="amount_token w-full h-10 flex justify-center items-center p-1 text-slate-50 text-1xl  font-semibold">
-   hi , {user?.user.first_name}
+  <>    <div className="amount_token w-full h-8 flex justify-center items-center p-1 text-slate-50 text-xl font-serif">
+   hi , {user?.user?.first_name}
 
 </div>
      
-        <div className="amount_token w-full h-44 flex justify-center items-center p-2 text-slate-50 text-4xl  font-bold">
+        <div className="amount_token w-full h-40 flex justify-center items-center p-2 text-slate-50 text-4xl  font-bold">
           37,789
 
         </div>
-        <div className="box w-full h-40 bg-slate-800 rounded-md">
- .
-        </div>
-
-        <div className="box w-full h-40 bg-slate-800 rounded-md mt-2">
- .
-        </div>
-        <div className="box w-full h-40 bg-slate-800 rounded-md mt-2">
- .
-        </div>
-        <div className="box w-full h-40 bg-slate-800 rounded-md mt-2">
+  
+        <div className="footer w-full h-16 bg-slate-800 rounded-md  ">
  .
         </div>
 
