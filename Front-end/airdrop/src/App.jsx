@@ -28,7 +28,7 @@ export default function App(){
   return (
      <>
        { !start ? <div className='w-full h-screen bg-slate-900 flex justify-center items-center '><div className="  ">
-        <div><img  src="/sticker.png" alt="logo" className='w-36 h-36  ' /></div>
+        <div><img  src="/sticker.png" alt="logo" className='w-44 h-44  ' /></div>
        
  
         <div className="w-full h-44 text-slate-50 "> </div>   
