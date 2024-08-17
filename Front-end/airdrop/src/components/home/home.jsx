@@ -6,7 +6,7 @@ export default function Home(){
 
  const user = useContext(TelegramContext)
     return (
-  <>    <div className="amount_token w-full h-10 flex justify-center items-center p-1 text-slate-50 text-4xl  font-bold">
+  <>    <div className="amount_token w-full h-10 flex justify-center items-center p-1 text-slate-50 text-1xl  font-semibold">
    hi , {user?.first_name}
 
 </div>
