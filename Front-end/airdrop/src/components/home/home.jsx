@@ -20,13 +20,13 @@ export default function Home(){
         </div>
         </div>
       
-        <div className="footer w-full h-16 bg-slate-600  flex rounded-full  ">
+        <div className="footer w-full h-16 bg-slate-800  flex rounded-full  ">
 
-            <div className="menu w-1/4 flex justify-center items-center   text-slate-500">a</div>
-            <div className="menu w-1/4 flex justify-center items-center  text-slate-500">b</div>
-            <div className="menu  w-1/4 flex justify-center items-center  text-slate-500">c</div>           
-            <div className="menu  w-1/4 flex justify-center items-center  text-slate-500">c</div>
- 
+            <div className="menu w-1/4 flex justify-center items-center   text-slate-400">a</div>
+            <div className="menu w-1/4 flex justify-center items-center  text-slate-400">b</div>
+            <div className="menu  w-1/4 flex justify-center items-center  text-slate-400">c</div>           
+            <div className="menu  w-1/4 flex justify-center items-center  text-slate-400">c</div>
+
         </div>
 
 
