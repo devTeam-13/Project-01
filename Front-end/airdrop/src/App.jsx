@@ -35,10 +35,12 @@ export default function App(){
     </div>
         </div>:
            
-        <div className="home  bg-slate-900 w-full h-screen p-2">
+        <div className="home  bg-slate-900 w-full h-screen ">
             <div className="container bg-slate-900 w-full h-full">
               <TelegramContext.Provider value={{user:user}}>
               <Home/>
+
+
 
 
               </TelegramContext.Provider>
