@@ -13,12 +13,16 @@
   word-spacing: 4px;
 }
 .footer {
-  position: absolute;
+  position: fixed;
   bottom:0.3em;
 }
 .home {
   position: relative;
 }
+.tasks {
+  height:70vh
+}
+
 /* Define the keyframes for the blinking animation */
 @keyframes blink {
   0% {
