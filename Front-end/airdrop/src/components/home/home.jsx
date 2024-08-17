@@ -61,7 +61,7 @@ export default function Home(){
         </div>
        
         <div className="TaskSection w-full  ">
-             <div className="task_head  text-slate-200 ">
+             <div className="task_head  text-slate-200 font-semibold ">
                 Tasks ({tasks.length})
              </div>
              <div className="task-list">
