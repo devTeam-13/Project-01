@@ -79,7 +79,7 @@ export default function Home(){
               onClick={() => claimTask(task.id,task.coins)}
               disabled={task.claimed}
             >
-              {task.claimed ? 'Claimed' : 'Claim'}
+              {task.claimed ?  <div><img  src="/tick.png" alt="logo" className='w-7 h-7 ' /></div> : 'Claim'}
             </button>
           </div>
         </div>
