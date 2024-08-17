@@ -44,10 +44,13 @@ export default function Home(){
 
 </div>
      
-        <div className="amount_token w-full h-40 flex justify-center items-center p-2  text-slate-50 text-4xl  font-bold">
-          {coins.toLocaleString()}
+        <div className="amount_token w-full h-40 flex flex-col justify-center items-center p-2  text-slate-50 text-5xl  font-bold">
+          <div>{coins.toLocaleString()}</div>
+          <div className="text-sm font-extralight text-slate-300 pt-1">$BUBS</div>
+       
 
         </div>
+       
         <div className="TaskSection w-full  ">
              <div className="task_head  text-slate-200 ">
                 Tasks ({tasks.length})
