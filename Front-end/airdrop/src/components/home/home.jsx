@@ -25,12 +25,11 @@ export default function Home(){
         // Logic to connect wallet goes here
         setWalletConnected(true)
       };
+      const sortedTasks = tasks.sort((a, b) => a.claimed - b.claimed);
 
  console.log("userr=>",user);
 
   
-
-
 
     return (
   <div className="home h-screen"> 
@@ -51,10 +50,10 @@ export default function Home(){
         </div>
         <div className="TaskSection w-full  ">
              <div className="task_head  text-slate-200 ">
-                Tasks (5)
+                Tasks ({tasks.length})
              </div>
              <div className="task-list">
-      {tasks.map((task) => (
+      {sortedTasks.map((task) => (
         <div key={task.id} className="task-item  pl-1 pr-1 pt-3 pb-3 mt-2 flex justify-between items-center">
           <div>
             <h3 className=" text-md text-gray-300">{task.name}</h3>
