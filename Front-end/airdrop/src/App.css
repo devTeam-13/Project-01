@@ -20,7 +20,8 @@
   position: relative;
 }
 .TaskSection {
-  height:60vh
+  height:60vh;
+  overflow-y: scroll;
 }
 
 /* Define the keyframes for the blinking animation */
