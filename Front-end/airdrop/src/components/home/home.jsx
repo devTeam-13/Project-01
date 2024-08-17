@@ -46,7 +46,7 @@ export default function Home(){
       <div className="amount_token w-full h-8 flex justify-center items-center p-1 text-slate-50 text-xl font-serif">
       <button
       className={`bg-slate-200 text-xs  font-bold py-2 px-4 rounded-full transition duration-300   ${walletConnected? "text-slate-400 bg-slate-800  ":"text-slate-600"}`}
-      onClick={handleConnectWallet}
+      onClick={!walletConnected&&handleConnectWallet}
     >
     { walletConnected?"0x22... Connected":   "Connect Wallet"}
     </button>
