@@ -1,7 +1,8 @@
 import { useContext,useState } from "react"
 import { TelegramContext } from "../../utils/store"
 export default function Home(){
-    const [coins,setCoins] = useState(37739)
+    const user = useContext(TelegramContext)
+    const [coins,setCoins] = useState(500)
     const [walletConnected ,setWalletConnected] = useState(false)
     const [tasks, setTasks] = useState([
         { id: 1, name: 'Invite 5 friends to Bubbles', description: '+30000 BUBBLES', claimed: false,coins:30000 },
@@ -24,8 +25,13 @@ export default function Home(){
         // Logic to connect wallet goes here
         setWalletConnected(true)
       };
- const user = useContext(TelegramContext)
+
  console.log("userr=>",user);
+
+  
+
+
+
     return (
   <div className="home h-screen"> 
   <div className="body p-4">
@@ -49,7 +55,7 @@ export default function Home(){
              </div>
              <div className="task-list">
       {tasks.map((task) => (
-        <div key={task.id} className="task-item  p-3 mt-2 flex justify-between items-center">
+        <div key={task.id} className="task-item  pl-1 pr-1 pt-3 pb-3 mt-2 flex justify-between items-center">
           <div>
             <h3 className=" text-md text-gray-300">{task.name}</h3>
             <p className="text-sm text-gray-400">{task.description}</p>
