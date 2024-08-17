@@ -4,6 +4,7 @@ export default function Home(){
     const user = useContext(TelegramContext)
     const [coins,setCoins] = useState(500)
     const [walletConnected ,setWalletConnected] = useState(false)
+    const [showSlider, setShowSlider] = useState(false);
     const [tasks, setTasks] = useState([
         { id: 1, name: 'Invite 5 friends to Bubbles', description: '+30000 BUBBLES', claimed: false,coins:30000 },
         { id: 2, name: 'Share your story', description: '+1000 BUBBLES', claimed: false,coins:1000 },
@@ -23,13 +24,21 @@ export default function Home(){
       };
       const handleConnectWallet = () => {
         // Logic to connect wallet goes here
-        setWalletConnected(true)
+        setShowSlider(true)
+
       };
       const sortedTasks = tasks.sort((a, b) => a.claimed - b.claimed);
 
  console.log("userr=>",user);
 
-  
+ const handleConfirmConnection = () => {
+    setWalletConnected(true);
+    setShowSlider(false); // Hide the slider after confirming
+  };
+
+  const handleCancelConnection = () => {
+    setShowSlider(false); // Hide the slider if the user cancels
+  };
 
     return (
   <div className="home h-screen"> 
@@ -39,7 +48,7 @@ export default function Home(){
       className={`bg-slate-200 text-xs  font-bold py-2 px-4 rounded-full transition duration-300   ${walletConnected? "text-slate-400 bg-slate-800  ":"text-slate-600"}`}
       onClick={handleConnectWallet}
     >
-    { walletConnected?"0x222... Connected":   "Connect Wallet"}
+    { walletConnected?"0x22... Connected":   "Connect Wallet"}
     </button>
 
 </div>
@@ -47,7 +56,7 @@ export default function Home(){
         <div className="amount_token w-full h-40 flex flex-col justify-center items-center p-2  text-slate-50 text-5xl  font-bold">
           <div>{coins.toLocaleString()}</div>
           <div className="text-sm font-extralight text-slate-300 pt-1">$BUBS</div>
-       
+        
 
         </div>
        
@@ -88,7 +97,32 @@ export default function Home(){
 
         </div>
 
-
+        {showSlider && (
+        <div
+          className={`fixed inset-0 flex justify-center items-end transition-all duration-500 ${
+            showSlider ? 'opacity-100 translate-y-0 ' : 'opacity-0 translate-y-full pointer-events-none'
+          }`}
+        >
+          <div className="bg-slate-800 w-full h-1/3 rounded-t-lg p-6 flex flex-col">
+            <h2 className="text-2xl text-white mb-4">Confirm Wallet Connection</h2>
+            <p className="text-slate-400 mb-8">Please confirm to connect your wallet.</p>
+            <div className="flex flex-col">
+              <button
+                className="bg-blue-400 text-white px-5 py-3 rounded-full"
+                onClick={handleConfirmConnection}
+              >
+                Confirm
+              </button>
+              <button
+                className="bg-slate-600 text-white px-5 py-3 rounded-full mt-3"
+                onClick={handleCancelConnection}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
   </div>
     )
 }
