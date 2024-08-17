@@ -40,14 +40,14 @@ export default function Home(){
       {tasks.map((task) => (
         <div key={task.id} className="task-item  p-3 mt-2 flex justify-between items-center">
           <div>
-            <h3 className=" text-sm text-gray-300">{task.name}</h3>
+            <h3 className=" text-md text-gray-300">{task.name}</h3>
             <p className="text-sm text-gray-400">{task.description}</p>
           </div>
           <div>
             <button
               className={`px-3 py-2 rounded-full ${
-                task.claimed ? ' cursor-not-allowed' : 'bg-gray-800 hover:bg-blue-700'
-              } text-white`}
+                task.claimed ? ' cursor-not-allowed text-sm' : 'bg-gray-800 '
+              } text-slate-200`}
               onClick={() => claimTask(task.id)}
               disabled={task.claimed}
             >
