@@ -10,7 +10,7 @@ export default function App(){
     const [start,setStart] = useState(false)
     const [user, setUser] = useState({});
    const createUser =(user)=>{
-    fetch("http://localhost:6969/api/v1/users/create", {
+    fetch("http://68.183.84.190:8080/api/v1/users/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export default function App(){
     
    }
    const checkUserExist=(id)=>{
-    fetch(`http://localhost:6969/api/users/${id}`, {
+    fetch(`http://68.183.84.190:8080/api/users/${id}`, {
       method: "GET",
       headers: {
         "Accept": "application/json",
