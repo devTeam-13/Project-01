@@ -43,7 +43,7 @@ export default function App(){
     
    }
    const checkUserExist=(id)=>{
-    fetch(`${SERVER_URL}/api/v1/users/get/${id}`, {
+    fetch(`${SERVER_URL}/api/v1/users/get/123456789`, {
       method: "GET",
       headers: {
         "Accept": "application/json",
