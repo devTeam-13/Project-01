@@ -21,7 +21,7 @@ export default function App(){
         referralLink: "http://example.com/referral",
         joiningDate: "2024-08-18",
         numberOfReferrals: 0,
-        bubblePoints: 500
+        bubblePoints: 600
       }),
     })
       .then(response => response.json())
@@ -45,6 +45,7 @@ export default function App(){
       .then(data => {console.log("Success:", data)
       if(data.id){
         setUser(data)
+        console.log("user got it");
         return true
       }else {
         console.log("No user exist");
@@ -59,16 +60,18 @@ export default function App(){
     useEffect(() => {
       if (TelegramWebApp?.initData) {
         const user = TelegramWebApp?.initDataUnsafe?.user;
-         console.log("user=",user);
+
         if (user) {
-          setUser(user); // Get the user ID
+         // Get the user ID
 
           if(checkUserExist(user.id)==false){
+            console.log("user not exist")
              createUser(user)
-             console.log("user not exist")
+   
           }
           else {
             console.log("old user",user);
+            setUser(user); 
           }
          
            
