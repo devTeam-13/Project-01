@@ -41,7 +41,7 @@ export default function App(){
         "Accept": "application/json",
       },
     })
-      .then(response => response.json())
+  
       .then(data => {console.log("Success:", data)
       if(data.id){
         setUser(data)
