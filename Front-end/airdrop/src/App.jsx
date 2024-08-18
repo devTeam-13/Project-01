@@ -22,6 +22,7 @@ export default function App(){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        'ngrok-skip-browser-warning': 'true'
       },
       body: JSON.stringify({
         telegramUsername: user?.username,
@@ -47,6 +48,7 @@ export default function App(){
       method: "GET",
       headers: {
         "Accept": "application/json",
+        'ngrok-skip-browser-warning': 'true'
       },
     })
       .then(res => res.json())
