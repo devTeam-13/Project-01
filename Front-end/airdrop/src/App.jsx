@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import './App.css';
 import Home from './components/home/home';
 import { TelegramContext } from './utils/store';
-import { SERVER_URL,BOT_USERNAME } from "../../constants"
+import { SERVER_URL,BOT_USERNAME } from "./utils/constants"
 import { getCurrentDate } from './utils/currentDate';
 
 

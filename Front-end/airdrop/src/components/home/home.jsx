@@ -1,6 +1,6 @@
 import { useContext,useState } from "react"
 import { TelegramContext } from "../../utils/store"
-import { SERVER_URL,BOT_USERNAME } from "../../constants"
+import { SERVER_URL } from "../../utils/constants"
 
 
 export default function Home(){
