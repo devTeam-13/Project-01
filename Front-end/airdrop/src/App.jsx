@@ -9,6 +9,7 @@ export default function App(){
   const TelegramWebApp = window?.Telegram?.WebApp;
     const [start,setStart] = useState(false)
     const [user, setUser] = useState({});
+    const [status,setStatus]=useState()
    const createUser =(user)=>{
     fetch("https://d0e3-68-183-84-190.ngrok-free.app/api/v1/users/create", {
       method: "POST",
@@ -46,10 +47,11 @@ export default function App(){
       if(data.id){
         setUser(data)
         console.log("user got it");
+        
         return true
       }else {
         console.log("No user exist");
-        return false
+        createUser(user)
         
       }
     
@@ -63,16 +65,9 @@ export default function App(){
 
         if (user) {
          // Get the user ID
-
-          if(checkUserExist(user.id)==false){
-            console.log("user not exist")
-             createUser(user)
-   
-          }
-          else {
-            console.log("old user",user);
-            setUser(user); 
-          }
+         checkUserExist(user.id)
+       
+       
          
            
         }
