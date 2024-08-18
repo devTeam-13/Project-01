@@ -1,6 +1,6 @@
 import { useContext,useState } from "react"
 import { TelegramContext } from "../../utils/store"
-import { token } from "morgan"
+
 export default function Home(){
     const user = useContext(TelegramContext)
     const [coins,setCoins] = useState(500)
