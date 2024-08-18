@@ -1,5 +1,6 @@
 import { useContext,useState } from "react"
 import { TelegramContext } from "../../utils/store"
+import { token } from "morgan"
 export default function Home(){
     const user = useContext(TelegramContext)
     const [coins,setCoins] = useState(500)
@@ -12,6 +13,22 @@ export default function Home(){
         { id: 4, name: 'Join Bubbles Community group', description: '+2000 BUBBLES', claimed: false,coins:2000 },
         { id: 5, name: 'Make TON transaction', description: '+10000 BUBBLES', claimed: false,coins:10000 },
       ]);
+      const updateCoins =()=>{
+           fetch("https://463d-68-183-84-190.ngrok-free.app/api/tokens", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                tgId: user.id,
+                token: coins.toString()
+            }),
+            })
+            .then(response => response.json())
+            .then(data => console.log("Success:", data))
+            .catch(error => console.error("Error:", error));
+
+      }
       const claimTask = (id,coin) => {
         const updatedTasks = tasks.map((task) => {
           if (task.id === id) {
