@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react';
 import './App.css';
 import Home from './components/home/home';
 import { TelegramContext } from './utils/store';
+import { SERVER_URL,BOT_USERNAME } from "../../constants"
+import { getCurrentDate } from './utils/currentDate';
 
 
 
@@ -10,8 +12,13 @@ export default function App(){
     const [start,setStart] = useState(false)
     const [user, setUser] = useState({});
     const [status,setStatus]=useState()
+
+    const createRefLink = (id)=>{
+      return  `https://t.me/${BOT_USERNAME}/start=${id}`;
+
+    }
    const createUser =(user)=>{
-    fetch("https://d0e3-68-183-84-190.ngrok-free.app/api/v1/users/create", {
+    fetch(`${SERVER_URL}/api/v1/users/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,44 +26,40 @@ export default function App(){
       body: JSON.stringify({
         telegramUsername: user?.username,
         tgId: user?.id,
-        referralLink: "http://example.com/referral",
-        joiningDate: "2024-08-18",
+        referralLink: createRefLink(user.id),
+        joiningDate: getCurrentDate(),
         numberOfReferrals: 0,
-        bubblePoints: 600
+        bubblePoints: 500
       }),
     })
       .then(response => response.json())
       .then(data => {
         console.log("Success:", data)
-        return data;
+        setUser(user)
       })
       .catch(error => {console.error("Error:", error)
-        return error
+       
     });
     
    }
    const checkUserExist=(id)=>{
-    fetch(`https://d0e3-68-183-84-190.ngrok-free.app/api/v1/users/get/${id}`, {
+    fetch(`${SERVER_URL}/api/v1/users/get/${id}`, {
       method: "GET",
       headers: {
         "Accept": "application/json",
       },
     })
-  
+      .then(res => res.json())
       .then(data => {console.log("Success:", data)
-      if(data.id){
+  
         setUser(data)
         console.log("user got it");
-        
-        return true
-      }else {
-        console.log("No user exist");
-        createUser(user)
-        
-      }
-    
+
     })
-      .catch(error => console.error("Error:", error));
+      .catch(error => {console.error("Error:", error)
+      console.log("No user exist");
+      createUser(user)
+  });
     
    }
     useEffect(() => {
@@ -66,18 +69,12 @@ export default function App(){
         if (user) {
          // Get the user ID
          checkUserExist(user.id)
-       
-       
-         
            
         }
       }
   
-
       TelegramWebApp.expand();
     }, []);
-
-
 
      setTimeout(()=>{
        setStart(true);

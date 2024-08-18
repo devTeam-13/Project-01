@@ -1,11 +1,14 @@
 import { useContext,useState } from "react"
 import { TelegramContext } from "../../utils/store"
+import { SERVER_URL,BOT_USERNAME } from "../../constants"
+
 
 export default function Home(){
     const user = useContext(TelegramContext)
     const [coins,setCoins] = useState(500)
     const [walletConnected ,setWalletConnected] = useState(false)
     const [showSlider, setShowSlider] = useState(false);
+    const [refLink,setRefLink] =useState(null)
     const [tasks, setTasks] = useState([
         { id: 1, name: 'Invite 5 friends to Bubbles', description: '+30000 BUBBLES', claimed: false,coins:30000 },
         { id: 2, name: 'Share your story', description: '+1000 BUBBLES', claimed: false,coins:1000 },
@@ -13,8 +16,9 @@ export default function Home(){
         { id: 4, name: 'Join Bubbles Community group', description: '+2000 BUBBLES', claimed: false,coins:2000 },
         { id: 5, name: 'Make TON transaction', description: '+10000 BUBBLES', claimed: false,coins:10000 },
       ]);
+ 
       const updateCoins =()=>{
-           fetch("https://463d-68-183-84-190.ngrok-free.app/api/tokens", {
+           fetch(`${SERVER_URL}/api/tokens `, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -36,7 +40,9 @@ export default function Home(){
           }
           return task;
         });
+    
         setCoins(coins+coin)
+        updateCoins()
         setTasks(updatedTasks);
       };
       const handleConnectWallet = () => {
