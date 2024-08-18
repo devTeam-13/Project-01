@@ -10,7 +10,7 @@ export default function App(){
     const [start,setStart] = useState(false)
     const [user, setUser] = useState({});
    const createUser =(user)=>{
-    fetch("https://463d-68-183-84-190.ngrok-free.app/api/v1/users/create", {
+    fetch("https://d0e3-68-183-84-190.ngrok-free.app/api/v1/users/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export default function App(){
     
    }
    const checkUserExist=(id)=>{
-    fetch(`https://463d-68-183-84-190.ngrok-free.app/api/v1/users/get/${id}`, {
+    fetch(`https://d0e3-68-183-84-190.ngrok-free.app/api/v1/users/get/${id}`, {
       method: "GET",
       headers: {
         "Accept": "application/json",
