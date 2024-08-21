@@ -14,6 +14,7 @@ export default function App(){
     const [user, setUser] = useState({});
     const [tguser, setTgUser] = useState({});
     const [status,setStatus]=useState()
+    const [tg,setTg]= useState();
 
     const createRefLink = (id)=>{
       return  `https://t.me/${BOT_USERNAME}/start=${id}`;
@@ -69,7 +70,7 @@ export default function App(){
     useEffect(() => {
       if (TelegramWebApp?.initData) {
         const user = TelegramWebApp?.initDataUnsafe?.user;
-        console.log("tg detail->", TelegramWebApp?.initDataUnsafe);
+         setTg(TelegramWebApp?.initDataUnsafe?.start_param);
          setTgUser(user)
         if (user) {
          // Get the user ID
@@ -90,10 +91,10 @@ export default function App(){
   return (
      <>
        { !start ? <div className='w-full h-screen bg-slate-900 flex justify-center items-center '><div className="  ">
-        <div><img  src="/sticker.png" alt="logo" className='w-44 h-44  ' /></div> Prabh
+        <div><img  src="/sticker.png" alt="logo" className='w-44 h-44  ' /></div> 
        
  
-        <div className="w-full h-44 text-slate-50 "> </div>   
+        <div className="w-full h-44 text-slate-50 "> {tg}</div>   
     </div>
         </div>:
            
@@ -102,7 +103,7 @@ export default function App(){
               <TelegramContext.Provider value={{user:user, changeTheme : setUser}}>
               <Home/>
 
-
+        
 
 
               </TelegramContext.Provider>
