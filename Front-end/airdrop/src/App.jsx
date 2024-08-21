@@ -8,9 +8,11 @@ import { getCurrentDate } from './utils/currentDate';
 
 
 export default function App(){
+
   const TelegramWebApp = window?.Telegram?.WebApp;
     const [start,setStart] = useState(false)
     const [user, setUser] = useState({});
+    const [tguser, setTgUser] = useState({});
     const [status,setStatus]=useState()
 
     const createRefLink = (id)=>{
@@ -36,7 +38,7 @@ export default function App(){
       .then(response => response.json())
       .then(data => {
         console.log("Success:", data)
-        setUser(user)
+        setUser(data)
       })
       .catch(error => {console.error("Error:", error)
        
@@ -44,7 +46,7 @@ export default function App(){
     
    }
    const checkUserExist=(id)=>{
-    fetch(`${SERVER_URL}/api/v1/users/get/123456789`, {
+    fetch(`${SERVER_URL}/api/v1/users/get/${id}`, {
       method: "GET",
       headers: {
         "Accept": "application/json",
@@ -60,21 +62,24 @@ export default function App(){
     })
       .catch(error => {console.error("Error:", error)
       console.log("No user exist");
-      createUser(user)
+      createUser(tguser)
   });
     
    }
     useEffect(() => {
       if (TelegramWebApp?.initData) {
         const user = TelegramWebApp?.initDataUnsafe?.user;
-
+        console.log("tg detail->", TelegramWebApp?.initDataUnsafe);
+         setTgUser(user)
         if (user) {
          // Get the user ID
+         
          checkUserExist(user.id)
            
         }
       }
-  
+     
+
       TelegramWebApp.expand();
     }, []);
 
@@ -85,7 +90,7 @@ export default function App(){
   return (
      <>
        { !start ? <div className='w-full h-screen bg-slate-900 flex justify-center items-center '><div className="  ">
-        <div><img  src="/sticker.png" alt="logo" className='w-44 h-44  ' /></div>
+        <div><img  src="/sticker.png" alt="logo" className='w-44 h-44  ' /></div> Prabh
        
  
         <div className="w-full h-44 text-slate-50 "> </div>   
@@ -94,7 +99,7 @@ export default function App(){
            
         <div className="home  bg-slate-900 w-full h-screen ">
             <div className="container bg-slate-900 w-full h-full">
-              <TelegramContext.Provider value={{user:user}}>
+              <TelegramContext.Provider value={{user:user, changeTheme : setUser}}>
               <Home/>
 
 
